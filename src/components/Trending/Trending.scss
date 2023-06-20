@@ -1,0 +1,19 @@
+.trending {
+  margin-bottom: 40px;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 40px;
+    //overflow: hidden;
+    margin: 0;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;
+
+  }
+}

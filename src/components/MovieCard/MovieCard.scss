@@ -1,0 +1,42 @@
+.movie-card {
+  position: relative;
+  width: 23%;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+
+  &__image {
+    margin-bottom: 20px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__action {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  &__title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+  }
+}

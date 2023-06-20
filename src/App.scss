@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  gap: 20px;
+
+  &__menu {
+    position: relative;
+    width: 10%;
+  }
+
+  &__content {
+    width: 100%;
+    min-height: 90vh;
+    padding: 20px;
+  }
+
+}

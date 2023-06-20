@@ -1,0 +1,35 @@
+.menu {
+  position: fixed;
+  background-color: var(--color-blur-medium);
+  height: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  z-index: 10;
+
+
+  &__logo {
+    font-size: 24px;
+    color: var(--color-logo);
+    margin-bottom: 40px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+    &-item {
+      cursor: pointer;
+      font-size: 24px;
+      color: var(--color-blur-light);
+    }
+  }
+}
+
+.active {
+  color: var(--color-white);
+}
+
