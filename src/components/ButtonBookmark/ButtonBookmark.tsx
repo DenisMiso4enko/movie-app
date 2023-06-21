@@ -1,13 +1,8 @@
 import React from 'react'
 import './ButtonBookmark.scss'
-import { BiBookmark } from 'react-icons/bi'
 
-const ButtonBookmark = () => {
-  return (
-    <button className="bookmark-btn">
-      <BiBookmark />
-    </button>
-  )
+const ButtonBookmark = ({ icon }: any) => {
+  return <button className="bookmark-btn">{icon}</button>
 }
 
 export default ButtonBookmark

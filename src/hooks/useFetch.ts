@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { fetchData } from '../utils/api'
 import { IApiDataType } from '../types/ApiDataType'
 import { IDetailsType } from '../types/DetailsType'
-import { AxiosError } from 'axios'
 const useFetch = (url: string) => {
   const [data, setData] = useState<IApiDataType | IDetailsType | null>(null)
   const [loading, setLoading] = useState(false)

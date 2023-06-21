@@ -3,12 +3,15 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { RiHomeFill } from 'react-icons/ri'
 import { MdMovie, MdLocalMovies } from 'react-icons/md'
 import { IoBookmark, IoTvOutline, IoBody } from 'react-icons/io5'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../../store/store'
+import { logOut } from '../../store/Slices/User/userSlice'
+import { BiLogOut } from 'react-icons/bi'
 import './Menu.scss'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store/store'
 
 const Menu = () => {
   const { userId, username } = useSelector((state: RootState) => state.user)
+  const dispatch = useDispatch<AppDispatch>()
   const navigate = useNavigate()
   const navigationHandler = (type: string) => {
     if (type === 'movie') {
@@ -64,12 +67,12 @@ const Menu = () => {
 
       <div className="menu__actions">
         {userId ? (
-          <div>
-            <div>
-              <IoBody />
+          <>
+            <div className="avatar">{username?.slice(0, 1)}</div>
+            <div className="logout" onClick={() => dispatch(logOut())}>
+              <BiLogOut />
             </div>
-            <h3>{username}</h3>
-          </div>
+          </>
         ) : (
           <NavLink className="menu__nav" to={'/login'}>
             Login

@@ -2,7 +2,7 @@
   position: fixed;
   background-color: var(--color-blur-medium);
   height: 800px;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -27,9 +27,27 @@
       color: var(--color-blur-light);
     }
   }
+
+  &__actions {
+  }
 }
 
 .active {
   color: var(--color-white);
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.avatar {
+  color: var(--color-white);
+  border-radius: 50%;
+  font-size: 23px;
+  width: 30px;
+  height: 30px;
+  background: var(--color-logo);
+  text-align: center;
+  margin-bottom: 20px;
 }
 

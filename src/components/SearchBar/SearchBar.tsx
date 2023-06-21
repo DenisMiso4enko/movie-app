@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Input from '../Input/Input'
 import { LuSearch } from 'react-icons/lu'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../store/store'
 import { setSearchQuery } from '../../store/Slices/Home/homeSlice'
@@ -18,8 +18,9 @@ const SearchBar = () => {
       dispatch(setSearchQuery(''))
     }
   }
+
   return (
-    <form className="form-search" onSubmit={handleSearchSubmit}>
+    <form className={`form-search`} onSubmit={handleSearchSubmit}>
       <Input
         value={searchQuery}
         onChange={(e) => dispatch(setSearchQuery(e.currentTarget.value))}
