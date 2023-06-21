@@ -22,9 +22,10 @@ type MovieCardProps = {
   data: IMovieTypes
   mediaType?: string
   fromSearch?: boolean
+  trending?: boolean
 }
 
-const MovieCard: FC<MovieCardProps> = ({ data, mediaType }) => {
+const MovieCard: FC<MovieCardProps> = ({ data, mediaType, trending }) => {
   const { url, genres } = useSelector((state: RootState) => state.home)
   const { userId, favoritesMovies, favoritesTv } = useSelector(
     (state: RootState) => state.user
@@ -59,7 +60,7 @@ const MovieCard: FC<MovieCardProps> = ({ data, mediaType }) => {
   }
   return (
     <div
-      className="movie-card"
+      className={`movie-card ${trending ? 'trending-card' : null}`}
       onClick={() => navigate(`/${data.media_type || mediaType}/${data.id}`)}
     >
       <div className="movie-card__image">
@@ -70,13 +71,15 @@ const MovieCard: FC<MovieCardProps> = ({ data, mediaType }) => {
         )}
       </div>
 
-      <div className="movie-card__action" onClick={handleBookmark}>
-        {isIncludeMovie || isIncludeTv ? (
-          <ButtonBookmark icon={<BsBookmarkX />} />
-        ) : (
-          <ButtonBookmark icon={<BiBookmark />} />
-        )}
-      </div>
+      {userId && (
+        <div className="movie-card__action" onClick={handleBookmark}>
+          {isIncludeMovie || isIncludeTv ? (
+            <ButtonBookmark icon={<BsBookmarkX />} />
+          ) : (
+            <ButtonBookmark icon={<BiBookmark />} />
+          )}
+        </div>
+      )}
 
       <div className="movie-card__text">
         <div className="movie-card__info">

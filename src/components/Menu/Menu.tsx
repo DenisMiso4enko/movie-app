@@ -55,14 +55,16 @@ const Menu = () => {
         >
           <IoTvOutline />
         </div>
-        <div
-          className={`menu__nav-item ${
-            location.pathname === '/bookmarks' ? 'active' : ''
-          }`}
-          onClick={() => navigationHandler('bookmarks')}
-        >
-          <IoBookmark />
-        </div>
+        {userId && (
+          <div
+            className={`menu__nav-item ${
+              location.pathname === '/bookmarks' ? 'active' : ''
+            }`}
+            onClick={() => navigationHandler('bookmarks')}
+          >
+            <IoBookmark />
+          </div>
+        )}
       </nav>
 
       <div className="menu__actions">

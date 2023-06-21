@@ -55,59 +55,59 @@ export const userSlice = createSlice({
       state.favoritesTv = null
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(fetchLogin.pending, (state) => {
-      state.loading = true
-      state.error = null
-    })
-    builder.addCase(fetchLogin.fulfilled, (state) => {
-      state.loading = false
-      state.error = null
-    })
-    builder.addCase(fetchLogin.rejected, (state) => {
-      state.loading = false
-      state.error = 'Something went wrong'
-    })
-    // getMe
-    builder.addCase(fetchUserById.pending, (state) => {
-      state.loading = true
-      state.error = null
-    })
-    builder.addCase(fetchUserById.fulfilled, (state) => {
-      state.loading = false
-      state.error = null
-    })
-    builder.addCase(fetchUserById.rejected, (state) => {
-      state.loading = false
-      state.error = 'Something went wrong'
-    })
-    // to fav movie
-    builder.addCase(fetchAddToFavoriteMovie.pending, (state) => {
-      state.loading = true
-      state.error = null
-    })
-    builder.addCase(fetchAddToFavoriteMovie.fulfilled, (state) => {
-      state.loading = false
-      state.error = null
-    })
-    builder.addCase(fetchAddToFavoriteMovie.rejected, (state) => {
-      state.loading = false
-      state.error = 'Something went wrong'
-    })
-    // to fav tv
-    builder.addCase(fetchAddToFavoriteTv.pending, (state) => {
-      state.loading = true
-      state.error = null
-    })
-    builder.addCase(fetchAddToFavoriteTv.fulfilled, (state) => {
-      state.loading = false
-      state.error = null
-    })
-    builder.addCase(fetchAddToFavoriteTv.rejected, (state) => {
-      state.loading = false
-      state.error = 'Something went wrong'
-    })
-  },
+  // extraReducers: (builder) => {
+  //   builder.addCase(fetchLogin.pending, (state) => {
+  //     state.loading = true
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchLogin.fulfilled, (state) => {
+  //     state.loading = false
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchLogin.rejected, (state) => {
+  //     state.loading = false
+  //     state.error = 'Something went wrong'
+  //   })
+  //   // getMe
+  //   builder.addCase(fetchUserById.pending, (state) => {
+  //     state.loading = true
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchUserById.fulfilled, (state) => {
+  //     state.loading = false
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchUserById.rejected, (state) => {
+  //     state.loading = false
+  //     state.error = 'Something went wrong'
+  //   })
+  //   // to fav movie
+  //   builder.addCase(fetchAddToFavoriteMovie.pending, (state) => {
+  //     state.loading = true
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchAddToFavoriteMovie.fulfilled, (state) => {
+  //     state.loading = false
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchAddToFavoriteMovie.rejected, (state) => {
+  //     state.loading = false
+  //     state.error = 'Something went wrong'
+  //   })
+  //   // to fav tv
+  //   builder.addCase(fetchAddToFavoriteTv.pending, (state) => {
+  //     state.loading = true
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchAddToFavoriteTv.fulfilled, (state) => {
+  //     state.loading = false
+  //     state.error = null
+  //   })
+  //   builder.addCase(fetchAddToFavoriteTv.rejected, (state) => {
+  //     state.loading = false
+  //     state.error = 'Something went wrong'
+  //   })
+  // },
 })
 
 // Action creators are generated for each case reducer function

@@ -12,8 +12,8 @@ const Trending = () => {
       <h1 className="trending__title">Trending</h1>
       <div className="trending__list">
         {/* @ts-ignore */}
-        {data?.results?.map((item: any) => (
-          <TrendingCard key={item.id} item={item} />
+        {data?.results?.map((data: any) => (
+          <TrendingCard key={data.id} data={data} mediaType={'movie'} />
         ))}
       </div>
     </div>

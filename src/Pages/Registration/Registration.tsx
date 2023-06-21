@@ -1,16 +1,32 @@
 import React, { useState } from 'react'
 import './Registration.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Input from '../../components/Input/Input'
+import { fetchLogin, fetchRegister } from '../../store/Slices/User/userServices'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../../store/store'
 
 const Registration = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const dispatch = useDispatch<AppDispatch>()
+  const navigate = useNavigate()
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault()
+    const fields = {
+      username,
+      email,
+      password,
+    }
+    dispatch(fetchRegister({ fields, navigate }))
+  }
+
   return (
     <div className="registration auth-container">
       <h2 className="from-title">Registration</h2>
-      <form className="form">
+      <form className="form" onSubmit={handleLogin}>
         <Input
           value={username}
           onChange={(e) => setUsername(e.currentTarget.value)}

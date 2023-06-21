@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../store/store'
-import { useNavigate } from 'react-router-dom'
 import './Bookmarks.scss'
 import MovieCard from '../../components/MovieCard/MovieCard'
 
 const Bookmarks = () => {
-  const { userId, favoritesMovies, favoritesTv } = useSelector(
+  const { favoritesMovies, favoritesTv } = useSelector(
     (state: RootState) => state.user
   )
-  const navigate = useNavigate()
 
+  // @ts-ignore
+  const isEmptyMovie = favoritesMovies?.length > 0
+  // @ts-ignore
+  const isEmptyTv = favoritesTv?.length > 0
   return (
     <div className="bookmarks">
       <h2 className="bookmarks__title">Favorites Movies</h2>
       <div className="bookmarks__list favoritesMovies">
+        {!isEmptyMovie && <p>Favorites movies list empty</p>}
         {favoritesMovies?.map((movie) => (
           <MovieCard key={movie.id} data={movie} mediaType={'movie'} />
         ))}
       </div>
-      <h2 className="bookmarks__title">Favorites Movies</h2>
+      <h2 className="bookmarks__title">Favorites Tv Shows</h2>
       <div className="bookmarks__list">
+        {!isEmptyTv && <p>Favorites tv shows list empty</p>}
         {favoritesTv?.map((movie) => (
           <MovieCard key={movie.id} data={movie} mediaType={'tv'} />
         ))}

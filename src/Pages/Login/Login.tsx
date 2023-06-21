@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import './Login.scss'
 import Input from '../../components/Input/Input'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../store/store'
 import { fetchLogin } from '../../store/Slices/User/userServices'
+import './Login.scss'
 
 const Login = () => {
   const [email, setEmail] = useState('denrrmisochenko17@gmail.com')

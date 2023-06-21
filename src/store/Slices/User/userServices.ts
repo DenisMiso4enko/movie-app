@@ -30,6 +30,20 @@ export const fetchLogin = createAsyncThunk(
   }
 )
 
+export const fetchRegister = createAsyncThunk(
+  'user/fetchRegister',
+  async ({ fields, navigate }: any, { dispatch }) => {
+    try {
+      const response = await axios.post(`${BASE_URL}/register`, fields)
+      localStorage.setItem('user', response?.data?._id)
+      navigate('/')
+      dispatch(setUser(response.data))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+)
+
 export const fetchAddToFavoriteMovie = createAsyncThunk(
   'user/fetchAddToFavoriteMovie',
   async ({ userId, movieId, data }: any, { dispatch }) => {
