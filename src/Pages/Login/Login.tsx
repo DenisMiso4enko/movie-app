@@ -28,10 +28,10 @@ const Login = () => {
         <input
           type="text"
           {...register('email', {
-            required: 'Поле обязательно к заполнению',
+            required: 'The field is required',
             pattern: {
               value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-              message: 'Не верный формат почты',
+              message: 'Invalid mail format',
             },
           })}
           className="input-form"
@@ -47,10 +47,10 @@ const Login = () => {
         <input
           type="password"
           {...register('password', {
-            required: 'Поле обязательно к заполнению',
+            required: 'The field is required',
             minLength: {
               value: 3,
-              message: 'Минимум 4 символа',
+              message: 'Minimum 4 characters',
             },
           })}
           className="input-form"
