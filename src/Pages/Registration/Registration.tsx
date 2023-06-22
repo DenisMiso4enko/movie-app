@@ -54,6 +54,7 @@ const Registration = () => {
         />
         <div>
           {errors?.username && (
+            /* @ts-ignore */
             <p className="error-text">{errors?.username?.message}</p>
           )}
         </div>
@@ -71,6 +72,7 @@ const Registration = () => {
         />
         <div>
           {errors?.email && (
+            /* @ts-ignore */
             <p className="error-text">{errors?.email?.message}</p>
           )}
         </div>
@@ -89,6 +91,7 @@ const Registration = () => {
         />
         <div>
           {errors?.password && (
+            /* @ts-ignore */
             <p className="error-text">{errors?.password?.message}</p>
           )}
         </div>
