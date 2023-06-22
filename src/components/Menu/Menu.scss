@@ -49,5 +49,17 @@
   background: var(--color-logo);
   text-align: center;
   margin-bottom: 20px;
+  position: relative;
+  p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
 }
 
+
+.login-btn {
+  font-size: 20px;
+}

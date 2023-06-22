@@ -18,9 +18,9 @@ export const fetchUserById = createAsyncThunk(
 
 export const fetchLogin = createAsyncThunk(
   'user/fetchLogin',
-  async ({ fields, navigate }: any, { dispatch }) => {
+  async ({ data, navigate }: any, { dispatch }) => {
     try {
-      const response = await axios.post(`${BASE_URL}/login`, fields)
+      const response = await axios.post(`${BASE_URL}/login`, data)
       localStorage.setItem('user', response?.data?._id)
       navigate('/')
       dispatch(setUser(response.data))
@@ -32,9 +32,9 @@ export const fetchLogin = createAsyncThunk(
 
 export const fetchRegister = createAsyncThunk(
   'user/fetchRegister',
-  async ({ fields, navigate }: any, { dispatch }) => {
+  async ({ data, navigate }: any, { dispatch }) => {
     try {
-      const response = await axios.post(`${BASE_URL}/register`, fields)
+      const response = await axios.post(`${BASE_URL}/register`, data)
       localStorage.setItem('user', response?.data?._id)
       navigate('/')
       dispatch(setUser(response.data))

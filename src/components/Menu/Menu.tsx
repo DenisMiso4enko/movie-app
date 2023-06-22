@@ -6,7 +6,8 @@ import { IoBookmark, IoTvOutline, IoBody } from 'react-icons/io5'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../../store/store'
 import { logOut } from '../../store/Slices/User/userSlice'
-import { BiLogOut } from 'react-icons/bi'
+import { BiLogOut, BiLogIn } from 'react-icons/bi'
+import { FiLogIn } from 'react-icons/fi'
 import './Menu.scss'
 
 const Menu = () => {
@@ -70,14 +71,19 @@ const Menu = () => {
       <div className="menu__actions">
         {userId ? (
           <>
-            <div className="avatar">{username?.slice(0, 1)}</div>
-            <div className="logout" onClick={() => dispatch(logOut())}>
+            <div className="avatar">
+              <p>{username?.slice(0, 1).toUpperCase()}</p>
+            </div>
+            <div
+              className="logout login-btn"
+              onClick={() => dispatch(logOut())}
+            >
               <BiLogOut />
             </div>
           </>
         ) : (
-          <NavLink className="menu__nav" to={'/login'}>
-            Login
+          <NavLink className="menu__nav login-btn" to={'/login'}>
+            <FiLogIn />
           </NavLink>
         )}
       </div>

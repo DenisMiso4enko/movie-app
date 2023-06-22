@@ -5,8 +5,15 @@ import Input from '../../components/Input/Input'
 import { fetchLogin, fetchRegister } from '../../store/Slices/User/userServices'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../store/store'
+import { useForm } from 'react-hook-form'
 
 const Registration = () => {
+  const {
+    register,
+    formState: { errors, isValid },
+    handleSubmit,
+    reset,
+  } = useForm({ mode: 'onBlur' })
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -23,33 +30,70 @@ const Registration = () => {
     dispatch(fetchRegister({ fields, navigate }))
   }
 
+  const onSubmit = (data: any) => {
+    // console.log(JSON.stringify(data))
+    dispatch(fetchRegister({ data, navigate }))
+    reset()
+  }
+
   return (
     <div className="registration auth-container">
       <h2 className="from-title">Registration</h2>
-      <form className="form" onSubmit={handleLogin}>
-        <Input
-          value={username}
-          onChange={(e) => setUsername(e.currentTarget.value)}
-          type={'text'}
-          placeholder={'username...'}
-          cls={'input-form'}
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <input
+          type="text"
+          {...register('username', {
+            required: 'Поле обязательно к заполнению',
+            minLength: {
+              value: 3,
+              message: 'Минимум 3 символа',
+            },
+          })}
+          className="input-form"
+          placeholder="Username..."
         />
-        <Input
-          value={email}
-          onChange={(e) => setEmail(e.currentTarget.value)}
-          type={'email'}
-          placeholder={'email...'}
-          cls={'input-form'}
+        <div>
+          {errors?.username && (
+            <p className="error-text">{errors?.username?.message}</p>
+          )}
+        </div>
+        <input
+          type="text"
+          {...register('email', {
+            required: 'Поле обязательно к заполнению',
+            pattern: {
+              value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+              message: 'Не верный формат почты',
+            },
+          })}
+          className="input-form"
+          placeholder="Email..."
         />
-        <Input
-          value={password}
-          onChange={(e) => setPassword(e.currentTarget.value)}
-          type={'password'}
-          placeholder={'password...'}
-          cls={'input-form'}
+        <div>
+          {errors?.email && (
+            <p className="error-text">{errors?.email?.message}</p>
+          )}
+        </div>
+
+        <input
+          type="password"
+          {...register('password', {
+            required: 'Поле обязательно к заполнению',
+            minLength: {
+              value: 3,
+              message: 'Минимум 4 символа',
+            },
+          })}
+          className="input-form"
+          placeholder="Password..."
         />
-        <button className="form-btn" type="submit">
-          Login
+        <div>
+          {errors?.password && (
+            <p className="error-text">{errors?.password?.message}</p>
+          )}
+        </div>
+        <button className="form-btn" type="submit" disabled={!isValid}>
+          Registration
         </button>
         <p className="input-link">
           If have an account, link for

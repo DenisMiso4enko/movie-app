@@ -16,7 +16,6 @@ import {
   fetchRemoveFavoriteMovie,
   fetchRemoveFavoriteTv,
 } from '../../store/Slices/User/userServices'
-import { loadConfigFromFile } from 'vite'
 
 type MovieCardProps = {
   data: IMovieTypes
@@ -87,7 +86,7 @@ const MovieCard: FC<MovieCardProps> = ({ data, mediaType, trending }) => {
             {dayjs(data.release_date || data.first_air_date).format('YYYY')}
           </p>
           <p>{movieGenre}</p>
-          <p>9.7</p>
+          <p>{data.vote_average.toFixed(1)}</p>
         </div>
       </div>
       <h2 className="movie-card__title">{data.title || data.name}</h2>

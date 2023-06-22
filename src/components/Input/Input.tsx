@@ -5,8 +5,8 @@ type InputProps = {
   cls?: string
   type?: string
   placeholder?: string
-  value: string
-  onChange: (e: React.FormEvent<HTMLInputElement>) => void
+  value?: string
+  onChange?: (e: React.FormEvent<HTMLInputElement>) => void
   icon?: any
 }
 

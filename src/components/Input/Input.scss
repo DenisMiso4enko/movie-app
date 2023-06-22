@@ -41,6 +41,10 @@
   border-radius: 10px;
   background-color: var(--color-gray);
   color: var(--color-white);
+  transition: box-shadow .3s ease;
+  &:focus, &:hover {
+    box-shadow: 0 0 0 3px hsla(221, 66%, 78%, 0.8);
+  }
 
 }
 .input-form::placeholder {

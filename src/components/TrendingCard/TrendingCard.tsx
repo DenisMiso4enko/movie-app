@@ -85,7 +85,7 @@ const TrendingCard: FC<TrendingCardProps> = ({ data, mediaType }) => {
             {dayjs(data.release_date || data.first_air_date).format('YYYY')}
           </p>
           <p>{movieGenre}</p>
-          <p>9.7</p>
+          <p>{data.vote_average.toFixed(1)}</p>
         </div>
         <h3 className="title">{data.title || data.name}</h3>
       </div>
